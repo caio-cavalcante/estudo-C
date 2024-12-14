@@ -22,16 +22,17 @@ int busca(int x, int v[], int n) {
 
 int main() {
     srand(time(NULL));
-
-    int v[] = {};
+    
     int n;
     int x;
 
     printf("Informe o tamanho do vetor v: ");
     scanf("%d", &n);
+    
+    int v[n];
 
     for (int i = 0; i < n; i++) {
-        v[i] = rand() % 11;
+        v[i] = rand() % n + 1;
         printf("v[%d] = %d\n", i, v[i]);
     }
     
