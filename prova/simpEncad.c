@@ -96,7 +96,7 @@ void imprimirIterativo(celula * lista) {
 
 /* o loop for funciona semelhante ao while, apenas locais diferentes para elementos
     for (aux; aux != NULL; aux = aux -> prox) {
-        printf("%d ", aux->dado;
+        printf("%d ", aux->dado);
     }
 */
 }
@@ -169,7 +169,7 @@ int main(int argc, char *argv[]) {
     int resp, valor;
 
     do {
-        printf("\nO que deseja fazer?");
+        printf("\nMenu:");
         printf("\n1 - Inserir valor no início");
         printf("\n2 - Inserir valor no final");
         printf("\n3 - Imprimir lista iterativamente");
@@ -177,6 +177,7 @@ int main(int argc, char *argv[]) {
         printf("\n5 - Buscar valor na lista");
         printf("\n6 - Remover valor na lista");
         printf("\n9 - Sair\n");
+        printf("\nO que deseja fazer? ");
         scanf("%d", &resp);
 
         switch (resp) {
