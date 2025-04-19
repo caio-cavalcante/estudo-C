@@ -1,3 +1,4 @@
+// filas: First In, First Out
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -50,6 +51,7 @@ void imprimir(celula *fila) {
         for (aux; aux != NULL; aux = aux->prox) {
             printf("%d ", aux->dado);
         }
+        printf("\n");
     }
 }
 
