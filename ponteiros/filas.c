@@ -4,25 +4,25 @@
 
 typedef struct reg {
     int dado;
-    struct reg *ant;
-    struct reg *prox;
+    struct reg *esq;
+    struct reg *dir;
 } celula;
 
 celula *enfileirar(celula *fila, int valor) {
     celula *nova = malloc(sizeof(celula));
     nova->dado = valor;
-    nova->ant = NULL;
-    nova->prox = NULL;
+    nova->esq = NULL;
+    nova->dir = NULL;
 
     if (fila == NULL) {
         fila = nova;
     } else {
         celula *aux = fila;
-        while (aux->prox != NULL) {
-            aux = aux->prox;
+        while (aux->dir != NULL) {
+            aux = aux->dir;
         }
-        aux->prox = nova;
-        nova->ant = aux;
+        aux->dir = nova;
+        nova->esq = aux;
     }
 
     return fila;
@@ -35,7 +35,7 @@ celula *desenfileirar (celula *fila) {
         printf("Fila vazia.\n");
         return NULL;
     } else {
-        aux = aux->prox;
+        aux = aux->dir;
         free(fila);
         return aux;
     }
@@ -48,7 +48,7 @@ void imprimir(celula *fila) {
         printf("Fila vazia.\n");
         return;
     } else {
-        for (aux; aux != NULL; aux = aux->prox) {
+        for (aux; aux != NULL; aux = aux->dir) {
             printf("%d ", aux->dado);
         }
         printf("\n");

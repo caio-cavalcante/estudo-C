@@ -15,7 +15,6 @@ void mostrarTudo(celula *topo) {
         aux = aux->prox;
     } while (aux != NULL);
     printf("\n");
-    
 }
 
 celula *inserir(celula *topo, int conteudo) {
@@ -32,9 +31,9 @@ celula *inserir(celula *topo, int conteudo) {
     } else {
         celula *aux = topo;
         while (aux->prox != NULL) aux = aux->prox;
-        
+
         nova->ant = aux;
-        aux->prox = nova;        
+        aux->prox = nova;
     }
 
     return topo;
@@ -45,26 +44,23 @@ int main() {
     int valor;
     celula *topo = NULL;
 
-    while (resp != 2)
-    {
+    while (resp != 2) {
         printf("[1] - Inserir valor\n");
         printf("[2] - Sair\n");
         scanf("%d", &resp);
 
-        switch (resp)
-        {
-        case 1:
-            printf("Insira um valor: ");
-            scanf("%d", &valor);
-            topo = inserir(topo, valor);
-            break;
-        
-        default:
-            break;
+        switch (resp) {
+            case 1:
+                printf("Insira um valor: ");
+                scanf("%d", &valor);
+                topo = inserir(topo, valor);
+                break;
+
+            default:
+                break;
         }
     }
 
     mostrarTudo(topo);
     return 0;
 }
-

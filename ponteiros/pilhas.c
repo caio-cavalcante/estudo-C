@@ -4,22 +4,22 @@
 
 typedef struct reg {
     int dado;
-    struct reg *ant;
-    struct reg *prox;
+    struct reg *cima;
+    struct reg *baixo;
 } celula;
 
 celula *empilhar(celula *pilha, int valor) {
     celula *topo = malloc(sizeof(celula));
     topo->dado = valor;
-    topo->prox = NULL;
-    topo->ant = NULL;
+    topo->baixo = NULL;
+    topo->cima = NULL;
 
     if (pilha == NULL) {
         pilha = topo;
         return pilha;
     } else {
-        topo->prox = pilha;
-        pilha->ant = topo;
+        topo->baixo = pilha;
+        pilha->cima = topo;
         pilha = topo;
     }
     return pilha;
@@ -30,8 +30,8 @@ celula *desempilhar(celula *pilha) {
         printf("Pilha vazia.\n");
         return pilha;
     } else {
-        pilha = pilha->prox;
-        pilha->ant = NULL;
+        pilha = pilha->baixo;
+        pilha->cima = NULL;
         return pilha;
     }
 }
@@ -46,7 +46,7 @@ void imprimir(celula *pilha) {
         printf("Pilha:\n");
         while (aux != NULL) {
             printf("%d\n", aux->dado);
-            aux = aux->prox;
+            aux = aux->baixo;
         }
     }
 }
@@ -82,8 +82,7 @@ void main() {
                 printf("Volte sempre!");
                 break;
             default:
-                printf("Selecione uma opção válida.");
-                printf("\n");
+                printf("Selecione uma opção válida.\n");
                 break;
         }
     } while (resp != 9);
